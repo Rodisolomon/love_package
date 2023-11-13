@@ -1,0 +1,23 @@
+// A class for tracking information about volunteers
+
+class Volunteer:
+  // class for volunteers. intakes data from google form. 
+  // self = volunteer object, name = string, group = string or null, assembly = bool, driving = bool, email = string, phone = string, location = string, availability = string, experience = bool. 
+  def __init__(self, name, group, assembly, driving, email, phone, location, availability, experience):
+    self.name = name
+    if group == "Individual":
+      self.group = 0
+    else:
+      self.group = group
+    // not sure how to parse assembly/driving, keep it a string for now
+    self.assembly = assembly
+    self.driving = driving
+    self.email = email
+    self.phone = phone
+    self.location = location
+    self.availability = availability
+    if experience == "Yes":
+      self.experience = 1
+    else:
+      self.experience = 0
+    
