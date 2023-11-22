@@ -1,5 +1,6 @@
 # if some libraries need being installed, input their names in the `requirements.txt`, each (only the name of the package) in a new line as example in the file.
 # import libraries here
+from typing import Optional
 
 class Fetcher:
     '''
@@ -32,7 +33,17 @@ class Volunteer:
     '''
     This is the representation of the volunteer. Each person has their own information and some method to clean their own data.
     '''
-    def __init__(self, information):
+
+    def __init__(self, 
+            name: str, 
+            group: Optional[str], 
+            assembly: bool, 
+            driving: bool, 
+            email: str, 
+            phone: str, 
+            location: str, 
+            availability: str,  
+            experience: bool):
         '''
         Initialize the Volunteer object.
 
@@ -40,7 +51,22 @@ class Volunteer:
 
         Output: nothing.
         '''
-        pass
+        self.name = name
+        if group == "Individual":
+            self.group = 0
+        else:
+            self.group = group
+        # not sure how to parse assembly/driving, keep it a string for now
+        self.assembly = assembly
+        self.driving = driving
+        self.email = email
+        self.phone = phone
+        self.location = location
+        self.availability = availability
+        if experience == "Yes":
+            self.experience = 1
+        else:
+            self.experience = 0
 
     def clean(self):
         '''
