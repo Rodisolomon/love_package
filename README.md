@@ -15,3 +15,5 @@ To set up this repo on your machine:
 Front-end files are located in the ```src``` directory.  
 Changes you make to front-end files should be deployed to the GitHub Pages
 site when you commit them to GitHub.
+
+Dashboard locates in https://rodisolomon.github.io/love_package/
