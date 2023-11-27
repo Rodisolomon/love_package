@@ -1,4 +1,7 @@
-package_1
-package_2
-package_3
 typing-extensions>=3.7.4.3
+google-api-python-client
+google-auth
+google-auth-httplib2
+google-auth-oauthlib
+php
+

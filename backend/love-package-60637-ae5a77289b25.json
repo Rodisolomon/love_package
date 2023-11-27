@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "love-package-60637",
+  "private_key_id": "ae5a77289b250daf3bf8ca47410b42d4019faa7a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCHhPRIM02IW3BW\nktvogPsCZjSj+ZUD0Oio7vJtXPcwYl+mS0/wHFaVjipTn0y1BjCr8cDGIfHocjZS\n/KHJD/kocoZkrE2qLMij096uiCPDlnPYX4yGxhu196fuYT2AtNxAR9yta3E374Vt\ntUwVLohvdzuWTOgGtzLuuXTuElvFr8DCHpAnd21U0oqJtg0Tlmt+IBfa40LU8DGf\nzms6E12igl0SEP4EOlmplKjF6YmAkO7jkNli1ehubakIE+fVhJ/WpIj+L6ijONXD\n8AnMB1jxRVgSV2TPRmC+vzhRfsLmzCl4Z2zYjl/4asRV/8ciwrlEAvGP/2yu6K7u\nbNMs5h9DAgMBAAECggEACB9X5NvuUbXpTccPlyfj44jsrsdOvyPOThHERfnEdwnu\nYbEx4VpRdjVHJCvwFQmB8UxUGYv/S8dMqjyqFbr3XA1BMNeC8Cgu/mK8fgl620Yx\nO06+xXUqRAXL8uWxIf21FcU43MwLxSZ+AM1U+hAH7WZgE+oYHg7s5pIHCB3hkj+Y\nH9m8HchoGV9oJgpHACqoq0pd0qMtZaS44HX2b/xHoTg/rG2HOhI8+B397OZPEVwd\ndUsbGW4IeGdo+4hCsGgewY6DFejl0zeqzLRzdpFuP879z2/KdHkNGAGFzd1hym7T\nd2gF9qmbv5sEqh177Pk3Zb+j2fPh+rs9iVz6ips6QQKBgQC/pYJC9a4BM7UO0CwC\nhzqU4R++3JUQrcjV6V82UerLAnEFDXNq1qUXwh3M4c6bLX6CLvINTsbUr4+AOCKU\n/7jrcWe4UiBhDf6QgMGxaoiLOwfzHnIbQGdL4aWFHIOFjCsBBtveiqMR0HtltZGh\nHWuuxd9L1MK56pdjtxhdaEkQRwKBgQC1BpdZvTkjBP4Z3uu7qO1AERKGBxqTmTLs\n11t3QajbyDjpLfzACxN+wLBWv9qKwvZYzRawq7VGa/mz1I3a34TZ022F02zir/tP\n7TOMUpPdy0Zpv2RhyQm7o1EcC5WXkNA4M0XcmQbIFLljgYdNfGbrRu9nlTF+MoLO\n05TbdxKTJQKBgCQLVvKNDor/VKBSmtRm5qe1p6jYB9k5Njq1R8kJoyVHckZG/1wq\nvqY3Ri+QkLEy30ZQ2gmStWavFkhBRo/LgNYXYDCUka5vWV+IN+XMaZ32HkqlgUSK\n2mK1L9JXSI1HjZcF2TiDzqO9GFhKy/cHd4dJg/PZMj6RVqPUfeqjgIplAoGBAJ9+\nlS895u+R4IfOvwfyiEZgRF/ONn5BBntiK3ZhZXNvb6UTHZPermiJQVTNaLHFoOMQ\nn6M9RlQroi/tYKatNRHulJrKcy8vOk9rgHVr9FgAV6OoO7tkM60c8cOx+TU3JB3A\nHxeDxFPY3pZrc1iz+MHnF9u9uYOk4Vd1V7wdp0H5AoGAWrVCpGAV5LOidAff9Q++\nFJuG/ju5g1KS/kRokw9/HYSr/8on/1+jjnM9HRXHDXdV5G+M5XG2YpY8BCjOhKgq\nJUZtE9SvMac5CjmlmWkCMOVpiXZRPgLfhnbXQ83BszMPfNz/tigPS9jyxZ1sbFbZ\n50En1btTKviiX62JqLAphhM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "love-package-updater@love-package-60637.iam.gserviceaccount.com",
+  "client_id": "107576365389392961019",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/love-package-updater%40love-package-60637.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

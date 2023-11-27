@@ -1,10 +1,14 @@
 # if some libraries need being installed, input their names in the `requirements.txt`, each (only the name of the package) in a new line as example in the file.
 # import libraries here
 from typing import Optional
+from google.oauth2.service_account import Credentials
+from googleapiclient.discovery import build
+import pandas as pd
 
 class Fetcher:
     '''
     This is the representation of the object fetching data from Google Form using the API.
+    reference: https://github.com/juampynr/google-spreadsheet-reader
     '''
     def __init__(self):
         '''
@@ -14,7 +18,12 @@ class Fetcher:
 
         Ouput: nothing.
         '''
-        pass
+        self.SERVICE_ACCOUNT_FILE = "love-package-60637-ae5a77289b25.json"
+        self.SPREADSHEET_ID = '11Gft4o2fr-IbD8PrOJ81TGjEERNXKE4YUogBHVONa6E'
+        self.RANGE_NAME = 'Form Responses 1'
+        self.SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+
+
 
     def fetch_data(self):
         '''
@@ -26,7 +35,18 @@ class Fetcher:
 
         Modify:
         '''
-        pass
+        # Authenticate and create the service
+        creds = Credentials.from_service_account_file(self.SERVICE_ACCOUNT_FILE, scopes=self.SCOPES)
+        service = build('sheets', 'v4', credentials=creds)
+
+        # Request data from the Sheet
+        sheet = service.spreadsheets()
+        result = sheet.values().get(spreadsheetId=self.SPREADSHEET_ID, range=self.RANGE_NAME).execute()
+        values = result.get('values', [])
+
+        # Convert the data to a pandas DataFrame (optional)
+        df = pd.DataFrame(values)
+        print(df)
 
 
 class Volunteer:
