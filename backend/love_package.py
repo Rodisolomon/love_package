@@ -4,6 +4,7 @@ from typing import Optional
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 import pandas as pd
+import re
 
 class Fetcher:
     '''
@@ -31,7 +32,7 @@ class Fetcher:
 
         Input:
 
-        Output: fetched data (type list): containing all the fetched data.
+        Output: fetched data (panda dataframe): containing all the fetched data.
 
         Modify:
         '''
@@ -47,6 +48,7 @@ class Fetcher:
         # Convert the data to a pandas DataFrame (optional)
         df = pd.DataFrame(values)
         print(df)
+        return df
 
 
 class Volunteer:
@@ -54,39 +56,35 @@ class Volunteer:
     This is the representation of the volunteer. Each person has their own information and some method to clean their own data.
     '''
 
-    def __init__(self, 
-            name: str, 
-            group: Optional[str], 
-            assembly: bool, 
-            driving: bool, 
-            email: str, 
-            phone: str, 
-            location: str, 
-            availability: str,  
-            experience: bool):
+    def __init__(self, dict):
         '''
-        Initialize the Volunteer object.
+        Initialize the Volunteer object with a DataFrame row.
 
-        Input: information (type list/set/tuple): the information of each volunteer (suppose for now: each volunteer only submits the form once).
+        Input: row (pandas Series): A row from the DataFrame representing a volunteer's data.
 
         Output: nothing.
         '''
-        self.name = name
-        if group == "Individual":
-            self.group = 0
-        else:
-            self.group = group
-        # not sure how to parse assembly/driving, keep it a string for now
-        self.assembly = assembly
-        self.driving = driving
-        self.email = email
-        self.phone = phone
-        self.location = location
-        self.availability = availability
-        if experience == "Yes":
-            self.experience = 1
-        else:
-            self.experience = 0
+        self.name = dict['Name ']
+        self.group = 0 if dict['Are you volunteering as an individual or with a group?'] == "Individual" else int(dict['If you are volunteering as a group, how many people are in your group?'])
+        self.assembly = dict['Are you interested in driving for deliveries, assembling packages or both? '].lower().find('assembling') != -1
+        self.driving = dict['Are you interested in driving for deliveries, assembling packages or both? '].lower().find('driving') != -1
+        self.email = dict['Email Address ']
+        self.phone = dict['Phone Number ']
+        self.location = dict['Street Address/Neighborhood ']
+        self.availability = dict['Specific Availability ']
+        self.experience = dict['Have you volunteered with the Love Package Project before?'].lower() == 'yes'
+
+    @classmethod
+    def match_idx(cls, df, i):
+        #doing text match return a list of idx in the order of init function
+        first_row = df.iloc[0]
+        second_row = df.iloc[i+1]
+
+        # Creating key-value pairs and converting to a dictionary
+        merged_dict = dict(zip(first_row, second_row))
+        return merged_dict
+
+            
 
     def clean(self):
         '''
@@ -98,7 +96,16 @@ class Volunteer:
 
         Modify: itself (or if we want to store both raw and clean data separately for later reference, this method can create new class attributes).
         '''
-        pass
+        # Remove non-numeric characters
+        cleaned_number = re.sub(r'\D', '', self.phone)
+
+        # Check if the number has 10 digits, then format
+        if len(cleaned_number) == 10:
+            return f"{cleaned_number[:3]}-{cleaned_number[3:6]}-{cleaned_number[6:]}"
+        else:
+            # Handle the case where the number is not 10 digits
+            # You might want to return an error message or the original number
+            return self.phone
 
 
 class FireBase:
